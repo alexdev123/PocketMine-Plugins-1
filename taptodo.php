@@ -4,7 +4,7 @@ __PocketMine Plugin__
 name=Tap to do
 description=A simple plugin to automate commands
 version=0.3
-author=Falk
+author=Falk,alexdev123
 class=tapdo
 apiversion=10
 */
@@ -29,8 +29,8 @@ $this->api = $api;
 
 public function init(){
 
-$this->api->addHandler("player.block.touch", array($this,"eventHandle"),50);
-$this->api->console->register("tapcmd", "Sets the tap cmd for the block you click", array($this, "command"));
+$this->api->addHandler("player.move", array($this,"eventHandle"),50);
+$this->api->console->register("tapcmd", "Sets the tap cmd for the block you stand on", array($this, "command"));
 $this->config = new Config($this->api->plugin->configPath($this)."blocks.yml", CONFIG_YAML, array());
 }
 
